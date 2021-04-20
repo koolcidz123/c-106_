@@ -3,14 +3,14 @@ import csv
 import numpy as np
 
 def _get_data_(datapath):
-    Size = []
-    Time = []
+    Marks = []
+    Days = []
     with open(datapath) as f:
         df = csv.DictReader(f)
         for row in df:
-            Size.append(float(row["Size of TV"]))
-            Time.append(float(row["Time"]))
-    return{"x": Size, "y": Time}
+            Marks.append(float(row["Marks In Percentage"]))
+            Days.append(float(row["Days Present"]))
+    return{"x": Marks, "y": Days}
 
 def _find_correlation_(datasource):
     print(datasource)
@@ -18,7 +18,7 @@ def _find_correlation_(datasource):
     print (correlation[0,1])
 
 def _setup():
-    datapath = "Size of TVAverage time.csv"
+    datapath = "Student Marks vs Days Present.csv"
     datasource = _get_data_(datapath)
     _find_correlation_(datasource)
 
